@@ -1,0 +1,15 @@
+.incidente header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.incidente main form{
+    display: flex;
+    flex-direction: column;
+}
+
+.incidente main .botoes{
+    display: flex;
+    justify-content: space-around;
+}
