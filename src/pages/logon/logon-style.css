@@ -1,0 +1,16 @@
+.logon{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logon .formulario, .logon .logo{
+    width: 25%;
+    padding: 20px 5px
+}
+
+.logon .formulario form{
+    display: flex;
+    flex-direction: column;
+}
