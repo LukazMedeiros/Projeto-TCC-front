@@ -1,0 +1,20 @@
+.menu header{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header div{
+    display: flex;
+}
+
+main{
+    margin: 0 auto;
+    max-width: 50%;
+    text-align: right;
+}
+
+main .itens{
+    text-align: center;
+}
