@@ -1,0 +1,9 @@
+.header, .opcoes{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header button{
+    margin-left: 10px;
+}
