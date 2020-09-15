@@ -1,20 +1,42 @@
-.inicio header{
+.inicio{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    transition: 0.2s all ease;
+}
+
+.inicio main{
+    max-height: 100vh;
+    overflow: hidden;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    transition: 0.2s all ease;
 }
 
-header div{
+.inicio main .itens{
+    width: 100%;
+    overflow: auto;
+    
     display: flex;
+    justify-content: center;
 }
 
-main{
-    margin: 0 auto;
-    max-width: 50%;
-    text-align: right;
+::-webkit-scrollbar {
+    width: 0px;
 }
 
-main .itens{
-    text-align: center;
+
+@media screen and (max-width: 600px){
+
+    .inicio{
+        width: 90%;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .inicio main{
+        height: 100%;
+    }
 }

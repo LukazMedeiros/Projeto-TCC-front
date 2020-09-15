@@ -1,15 +1,39 @@
-.incidente header{
+.incidente{
+    width: 80%;
+    margin: 0 auto;
     display: flex;
+}
+
+.incidente main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .incidente main form{
     display: flex;
     flex-direction: column;
+    min-height: 41.666667%; /* 500px/1200px */
+    min-width: 41.666667%; /* 500px/1200px */
 }
 
 .incidente main .botoes{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+
+@media screen and (max-width: 600px){
+
+    .incidente{
+        width: 90%;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .incidente main{
+        height: 100%;
+    }
 }
