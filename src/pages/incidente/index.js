@@ -23,20 +23,22 @@ export default function Incidente() {
             <div className="incidente">
                 <Header/>
                 <main>
-                    <form onSubmit="">
-                        <input type="text" placeholder="Título"/>
-                        <input list="tipo" placeholder="Tipo de incidente"/>
-                        <datalist id="tipo">
-                            <option value="opção"></option>
-                            <option value="opção"></option>
-                            <option value="opção"></option>
-                        </datalist>
-                        <textarea placeholder="Descrição"></textarea>
-                    <div className="botoes">
-                        <button>Salvar</button>
-                        <button onClick={cancelar}>Cancelar</button>
+                    <div className="formulario">
+                        <form onSubmit="">
+                            <input type="text" placeholder="Título"/>
+                            <input list="tipo" placeholder="Tipo de incidente"/>
+                            <datalist id="tipo">
+                                <option value="opção"></option>
+                                <option value="opção"></option>
+                                <option value="opção"></option>
+                            </datalist>
+                            <textarea placeholder="Descrição"></textarea>
+                        <div className="botoes">
+                            <button>Salvar</button>
+                            <button onClick={cancelar}>Cancelar</button>
+                        </div>
+                        </form>
                     </div>
-                    </form>
                 </main>
             </div>
             )

@@ -16,11 +16,28 @@
 }
 
 .inicio main .itens{
-    width: 100%;
+    width: 50%;
     overflow: auto;
+    border-radius: 5px;
+    background: rgba(128, 128, 128, 0.5);
     
     display: flex;
     justify-content: center;
+    
+    margin-top: 1.666667%; /* 20px/1200px */
+}
+
+.inicio main .itens ul{
+    width: 100%;
+    padding: 10px;
+}
+
+.inicio main .itens ul div{
+    display: flex;
+}
+
+.inicio main .itens ul div > li{
+    flex: 1;
 }
 
 ::-webkit-scrollbar {
@@ -38,5 +55,9 @@
 
     .inicio main{
         height: 100%;
+    }
+
+    .inicio main .itens ul div{
+       flex-direction: column;
     }
 }

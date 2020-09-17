@@ -9,14 +9,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;    
+}
+
+.incidente main .formulario{
+    display: flex;
+    align-items: center;
     justify-content: center;
+    padding: 10px;
+    min-height: 50%; /* 600px/1200 */
+    min-width: 41.666667%; /* 500px/1200px */
+    border-radius: 5px;
+    background: rgba(128, 128, 128, 0.5);
+}
+
+.incidente main .formulario form > *{
+    margin-top: 10px;
+}
+
+.incidente main .formulario form textarea{
+    min-height: 100px;
 }
 
 .incidente main form{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 41.666667%; /* 500px/1200px */
-    min-width: 41.666667%; /* 500px/1200px */
+    
 }
 
 .incidente main .botoes{
