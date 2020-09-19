@@ -6,6 +6,7 @@
 }
 
 .inicio main{
+    background-color: rgb(128, 128, 128);
     max-height: 100vh;
     overflow: hidden;
     width: 100%;
@@ -16,11 +17,29 @@
 }
 
 .inicio main .itens{
-    width: 100%;
+    width: 50%;
     overflow: auto;
+    border-radius: 10px;
+    background-color: rgb(217, 217, 217);
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
     
     display: flex;
     justify-content: center;
+    
+    margin-top: 1.666667%; /* 20px/1200px */
+}
+
+.inicio main .itens ul{
+    width: 100%;
+    padding: 10px;
+}
+
+.inicio main .itens ul div{
+    display: flex;
+}
+
+.inicio main .itens ul div > li{
+    flex: 1;
 }
 
 ::-webkit-scrollbar {
@@ -39,4 +58,9 @@
     .inicio main{
         height: 100%;
     }
+
+    .inicio main .itens{
+        width: 80%;
+    }
+    
 }

@@ -24,8 +24,8 @@ export default function Incidente() {
                 <Header/>
                 <main>
                     <form onSubmit="">
-                        <input type="text" placeholder="Título"/>
-                        <input list="tipo" placeholder="Tipo de incidente"/>
+                        <input type="text" placeholder="Título" className="titulo"/>
+                        <input list="tipo" placeholder="Tipo de incidente" className="tipo"/>
                         <datalist id="tipo">
                             <option value="opção"></option>
                             <option value="opção"></option>
@@ -33,8 +33,8 @@ export default function Incidente() {
                         </datalist>
                         <textarea placeholder="Descrição"></textarea>
                     <div className="botoes">
-                        <button>Salvar</button>
-                        <button onClick={cancelar}>Cancelar</button>
+                        <button className="botao">Salvar</button>
+                        <button onClick={cancelar} className="botao">Cancelar</button>
                     </div>
                     </form>
                 </main>
