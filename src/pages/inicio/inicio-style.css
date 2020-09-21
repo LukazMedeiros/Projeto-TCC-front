@@ -58,7 +58,7 @@
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
-.filtro-container input[type="text"]{
+.filtro-container select{
     flex: 3;
     padding-left: 10px;
 }

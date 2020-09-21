@@ -19,12 +19,11 @@ export default function Inicio() {
                 <Header/>
                 <main>
                     <div className="filtro-container">
-                        <input type="text" list="filtro"/>
-                        <button><FiSearch/> Pesquisar</button>
-                        <datalist id="filtro">
-                            <option value="aberto"></option>
-                            <option value="encerrado"></option>
-                        </datalist>
+                    <select name="" id="">
+                        <option value="aberto">Abertos</option>
+                        <option value="encerrado">Encerrado</option>
+                    </select>
+                    <button><FiSearch/> Pesquisar</button>
                     </div>
                     <div className="itens">
                         <ul>
