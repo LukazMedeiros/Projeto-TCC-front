@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/header';
-import { FiTrash2 } from "react-icons/fi";
+import { FiTrash2, FiSearch } from "react-icons/fi";
 
 import './inicio-style.css'
 
@@ -18,6 +18,14 @@ export default function Inicio() {
             <div className="inicio">
                 <Header/>
                 <main>
+                    <div className="filtro-container">
+                        <input type="text" list="filtro"/>
+                        <button><FiSearch/> Pesquisar</button>
+                        <datalist id="filtro">
+                            <option value="aberto"></option>
+                            <option value="encerrado"></option>
+                        </datalist>
+                    </div>
                     <div className="itens">
                         <ul>
                             <div>

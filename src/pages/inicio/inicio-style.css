@@ -46,19 +46,36 @@
     width: 0px;
 }
 
+.filtro-container{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 10px;
+    height: 50px;
+}
+
+.filtro-container > *{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+.filtro-container input[type="text"]{
+    flex: 3;
+    padding-left: 10px;
+}
+
 
 @media screen and (max-width: 600px){
-
+    
     .inicio{
         width: 90%;
         flex-direction: column;
         height: 100vh;
     }
-
+    
     .inicio main{
         height: 100%;
     }
-
+    
     .inicio main .itens{
         width: 80%;
     }
