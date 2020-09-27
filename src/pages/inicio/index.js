@@ -11,7 +11,7 @@ export default function Inicio() {
 
     const usuario = sessionStorage.getItem('usuario');
     const [chamados, setChamados] = useState([]);
-    const [status, setStatus] = useState('abertos');
+    const [status, setStatus] = useState('aberto');
     
     useEffect(()=>{
         Api.get('incidente', {headers:{usuario:usuario}})
