@@ -11,11 +11,24 @@ export default function Inicio() {
 
     const usuario = sessionStorage.getItem('usuario');
     const [chamados, setChamados] = useState([]);
+    const [status, setStatus] = useState('abertos');
     
     useEffect(()=>{
         Api.get('incidente', {headers:{usuario:usuario}})
         .then(resposta => setChamados(resposta.data))
     },[usuario]);
+
+    async function pesquisar(e) {
+        e.preventDefault();
+
+        try {
+            const resposta = await Api.get(`incidente/${status}`)
+            console.log(resposta)
+            setChamados(resposta.data)
+        } catch (error) {
+            
+        }
+    }
 
     if ((usuario === '')||(usuario === null)) {
         return <Invalida/>
@@ -25,11 +38,14 @@ export default function Inicio() {
                 <Header/>
                 <main>
                     <div className="filtro-container">
-                    <select name="" id="">
+                    <select
+                    value={status}
+                    onChange={e => setStatus(e.target.value)}
+                    >
                         <option value="aberto">Abertos</option>
-                        <option value="encerrado">Encerrado</option>
+                        <option value="solucionado">Solucionado</option>
                     </select>
-                    <button><FiSearch/> Pesquisar</button>
+                    <button onClick={pesquisar}><FiSearch/> Pesquisar</button>
                     </div>                    
                         
                         {
@@ -37,17 +53,20 @@ export default function Inicio() {
                                 <div className="itens">
                                 <ul key={chamado.id}>
                                     <div>
-                                    <li>Status: {chamado.status}</li>
-                                    <li>Data: {chamado.data_abertura}</li>
-                                    <button><FiTrash2/></button>
-                                </div>
+                                        <li>Status: {chamado.status}</li>
+                                        <li>Data: {chamado.data_abertura}</li>
+                                        <button><FiTrash2/></button>
+                                    </div>
                                     <li>Título: {chamado.titulo}</li>
                                     <li>Descrição:{chamado.descricao}</li>
-                                    <li>Resolução: {chamado.resolucao}</li>
+                                    <div>
+                                        <li>Resolução: {chamado.resolucao}</li>
+                                        <li>Data: {chamado.data_encerramento}</li>
+                                    </div>
                                 </ul>
                                 </div>
                                 ))
-                            }
+                        }
                     
                 </main>
             </div>
