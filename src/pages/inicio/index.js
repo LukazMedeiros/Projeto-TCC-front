@@ -23,7 +23,6 @@ export default function Inicio() {
 
         try {
             const resposta = await Api.get(`incidente/${status}`)
-            console.log(resposta)
             setChamados(resposta.data)
         } catch (error) {
             
