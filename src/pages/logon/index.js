@@ -1,5 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
+// import Api from "../../services/api";
 import './logon-style.css'
 
 export default function Logon() {
@@ -19,7 +20,7 @@ export default function Logon() {
         </div>
         <div className="formulario">
             <form onSubmit={logon}>
-                <input type="text" id="usuario" placeholder="Login"/>
+                <input type="text" id="usuario" placeholder="RA"/>
                 <input type="password" placeholder="Senha"/>
                 <button>Entrar</button>
             </form>
