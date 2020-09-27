@@ -19,8 +19,8 @@ export default function Logon() {
         </div>
         <div className="formulario">
             <form onSubmit={logon}>
-                <input type="text" name="" id="usuario"/>
-                <input type="password" name="" id=""/>
+                <input type="text" id="usuario" placeholder="Login"/>
+                <input type="password" placeholder="Senha"/>
                 <button>Entrar</button>
             </form>
         </div>
