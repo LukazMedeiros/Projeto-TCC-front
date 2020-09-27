@@ -21,6 +21,7 @@ export default function Incidente() {
     async function abrir(e) {
         e.preventDefault();
         const dados = {titulo, descricao, usuario};
+        console.log(dados)
 
         try {
             const resposta = await Api.post('incidente', dados, {headers:{usuario:usuario}})

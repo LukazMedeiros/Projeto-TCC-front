@@ -7,7 +7,7 @@ import './header-style.css';
 
 export default function Header() {
     
-    const usuario = sessionStorage.getItem('usuario');
+    const nome = sessionStorage.getItem('nome');
     const history = useHistory();
     
     function logout(e) {
@@ -25,7 +25,7 @@ export default function Header() {
     return(
         <div className="header">
             <div className="logo">LOGOTIPO</div>
-            <p>Bem Vindo {usuario}</p>
+            <p>Bem Vindo {nome}</p>
             <button onClick={novo}>Novo <FiPlus/></button>
             <button onClick={logout}>Logout <FiLogOut/></button>            
         </div>

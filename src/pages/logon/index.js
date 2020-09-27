@@ -17,7 +17,8 @@ export default function Logon() {
             const resposta = await Api.post('sessao', dados)
             
             if (resposta.status === 200) {
-                sessionStorage.setItem('usuario', resposta.data.nome)
+                sessionStorage.setItem('nome', resposta.data.nome)
+                sessionStorage.setItem('usuario', resposta.data.ra)
                 alert(`Bem Vindo - ${resposta.data.nome}`)
                 history.push('/inicio')
             }
