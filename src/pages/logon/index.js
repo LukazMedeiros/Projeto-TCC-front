@@ -12,7 +12,6 @@ export default function Logon() {
     async function logon(e) {
         e.preventDefault();
         const dados = {usuario, senha};
-        console.log(dados)
         
         try {
             const resposta = await Api.post('sessao', dados)
@@ -26,8 +25,6 @@ export default function Logon() {
         } catch (error) {
             alert(`Erro ao efetuar login - Verifique o usuário e/ou senha!`)
         }
-        // sessionStorage.setItem('usuario', document.querySelector('#usuario').value)
-        // history.push('/inicio')
     }
 
     return(
