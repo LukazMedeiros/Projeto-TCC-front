@@ -19,8 +19,14 @@ export default function Logon() {
             if (resposta.status === 200) {
                 sessionStorage.setItem('nome', resposta.data.nome)
                 sessionStorage.setItem('usuario', resposta.data.ra)
+                sessionStorage.setItem('cpf', resposta.data.cpf)
+                sessionStorage.setItem('tipo', resposta.data.tipo)
                 alert(`Bem Vindo - ${resposta.data.nome}`)
-                history.push('/inicio')
+                if (resposta.data.tipo !== "administrador") {
+                    history.push('/inicio')                    
+                } else {
+                    history.push('/inicioadm')   
+                }
             }
             
         } catch (error) {

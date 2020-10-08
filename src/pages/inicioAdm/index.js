@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/header';
 import Api from "../../services/api";
-import { FiTrash2, FiSearch } from "react-icons/fi";
+import { FiCheck, FiSearch } from "react-icons/fi";
 
-import './inicio-style.css'
+import './inicioAdm-style.css'
 
 import Invalida from '../invalida';
 
-export default function Inicio() {
+export default function InicioAdm() {
 
     const usuario = sessionStorage.getItem('usuario');
     const [chamados, setChamados] = useState([]);
     const [status, setStatus] = useState('aberto');
     
     useEffect(()=>{
-        Api.get('incidente', {headers:{usuario:usuario}})
+        Api.get('adm')
         .then(resposta => setChamados(resposta.data))
     },[usuario]);
 
@@ -22,7 +22,7 @@ export default function Inicio() {
         e.preventDefault();
 
         try {
-            const resposta = await Api.get(`incidente/${status}/${usuario}`)
+            const resposta = await Api.get(`adm/${status}`)
             setChamados(resposta.data)
         } catch (error) {
             
@@ -33,7 +33,7 @@ export default function Inicio() {
         return <Invalida/>
     }else{
         return(
-            <div className="inicio">
+            <div className="inicioAdm">
                 <Header/>
                 <main>
                     <div className="filtro-container">
@@ -54,7 +54,7 @@ export default function Inicio() {
                                     <div>
                                         <li>Status: {chamado.status}</li>
                                         <li>Data: {chamado.data_abertura}</li>
-                                        <button><FiTrash2/></button>
+                                        <button><FiCheck/></button>
                                     </div>
                                     <li>Título: {chamado.titulo}</li>
                                     <li>Descrição:{chamado.descricao}</li>
