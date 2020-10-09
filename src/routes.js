@@ -7,6 +7,7 @@ import Inicio from './pages/inicio';
 import Incidente from './pages/incidente';
 import AlterarUsuario from './pages/alterarUsuario';
 import InicioAdm from './pages/inicioAdm';
+import EncerrarIncidente from './pages/encerrarIncidente';
 
 export default function Rotas() {
     return(
@@ -16,6 +17,7 @@ export default function Rotas() {
             <Route path="/inicioadm" component={InicioAdm}/>
             <Route path="/incidente" component={Incidente}/>
             <Route path="/alterarSenha" component={AlterarUsuario}/>
+            <Route path="/encerrarIncidente" component={EncerrarIncidente}/>
         </Switch>
         )
     }
