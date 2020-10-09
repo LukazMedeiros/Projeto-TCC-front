@@ -11,7 +11,7 @@ export default function InicioAdm() {
 
     const usuario = sessionStorage.getItem('usuario');
     const [chamados, setChamados] = useState([]);
-    const [status, setStatus] = useState('aberto');
+    const [status, setStatus] = useState('');
     
     useEffect(()=>{
         Api.get('adm')
@@ -41,6 +41,7 @@ export default function InicioAdm() {
                     value={status}
                     onChange={e => setStatus(e.target.value)}
                     >
+                        <option value="" disabled >selecione</option>
                         <option value="aberto">Abertos</option>
                         <option value="solucionado">Solucionados</option>
                     </select>

@@ -11,7 +11,7 @@ export default function Inicio() {
 
     const usuario = sessionStorage.getItem('usuario');
     const [chamados, setChamados] = useState([]);
-    const [status, setStatus] = useState('aberto');
+    const [status, setStatus] = useState('');
     
     useEffect(()=>{
         Api.get('incidente', {headers:{usuario:usuario}})
@@ -20,12 +20,22 @@ export default function Inicio() {
 
     async function pesquisar(e) {
         e.preventDefault();
-
         try {
             const resposta = await Api.get(`incidente/${status}/${usuario}`)
             setChamados(resposta.data)
         } catch (error) {
             
+        }
+    }
+
+    async function encerrar(id) {
+        const resolucao = "encerrado pelo usuário"
+        const dados = {resolucao , id}
+        try {
+            await Api.put(`/incidente`, dados)
+            setChamados(chamados.filter(incidente => incidente.id !== id))
+        } catch (error) {
+            alert(`deu erro aqui - ${error}`)
         }
     }
 
@@ -41,6 +51,7 @@ export default function Inicio() {
                     value={status}
                     onChange={e => setStatus(e.target.value)}
                     >
+                        <option value="" disabled >selecione</option>
                         <option value="aberto">Abertos</option>
                         <option value="solucionado">Solucionados</option>
                     </select>
@@ -54,7 +65,7 @@ export default function Inicio() {
                                     <div>
                                         <li>Status: {chamado.status}</li>
                                         <li>Data: {chamado.data_abertura}</li>
-                                        <button><FiTrash2/></button>
+                                        <button onClick={()=>encerrar(chamado.id)}><FiTrash2/></button>
                                     </div>
                                     <li>Título: {chamado.titulo}</li>
                                     <li>Descrição:{chamado.descricao}</li>
