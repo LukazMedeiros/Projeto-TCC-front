@@ -13,6 +13,7 @@ export default function AlterarUsuario() {
     const usuario = sessionStorage.getItem("usuario");
     const nome = sessionStorage.getItem("nome");
     const cpf = sessionStorage.getItem("cpf");
+    const tipo = sessionStorage.getItem("tipo");
     const ra = usuario;
     const [senhaantiga, setSenhaantiga] = useState('');
     var senha
@@ -25,26 +26,25 @@ export default function AlterarUsuario() {
     }
 
     async function validaSenha(e) {
-        e.preventDefault();
-        const validaSenha = crypto.createHash("md5",senhaantiga).update(senhaantiga).digest('HEX');
+        e.preventDefault()
+        const atual = crypto.createHash("md5",senhaantiga).update(senhaantiga).digest('HEX');
+        senha = novasenha
+        const dados ={ cpf, nome, ra, senha, tipo }
         try {
             const pesquisa = await Api.get('usuario', {headers:{usuario:usuario}})
-            if(validaSenha !== pesquisa.data[0].senha){
-                alert(`senha atual não confere`)
+            if (pesquisa.data[0].senha !== atual) {
+                alert(`Senha atual não confere`)
             }else if(novasenha !== confsenha){
-                alert(`as senhas não conferem`)
+                alert(`A nova senha e a confirmação da senha devem ser iguais`) 
             }else{
-                senha = novasenha
-                const dados = { cpf, nome, ra, senha }
                 const resposta = await Api.put('usuario', dados, {headers:{usuario:usuario}})
-                console.log(resposta)
                 alert(`${resposta.data.mensagem}`)
                 localStorage.clear();
                 sessionStorage.clear();
                 history.push('/')
             }
         } catch (error) {
-            alert(`erro na solicitação - ${error}`)
+            alert(`ERRO! - ${error}`)
         }
     }
     
